@@ -17,7 +17,7 @@ public class Repartidor {
     boolean activo;
 
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "pedido_id", referencedColumnName = "id")
     private Pedido pedido;
 

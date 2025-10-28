@@ -29,8 +29,9 @@ public class Pedido {
     @Column(nullable = false)
     private BigDecimal valorTotal;
     //relacion 1:m
-    @OneToMany(mappedBy = "pedido")
-    private Set<Repartidor> repartidor = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "repartidor_id", referencedColumnName = "id")
+    private Repartidor repartidor;
     //repacion 1:1
     @OneToOne(mappedBy = "pedido")
     private DetalleEntrega detalleEntrega;

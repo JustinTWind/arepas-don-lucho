@@ -2,6 +2,9 @@ package com.example.arepas_don_lucho.models;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table (name = "Repartidor")
 public class Repartidor {
@@ -16,10 +19,9 @@ public class Repartidor {
     String zonaCobertura;
     boolean activo;
 
+    @OneToMany(mappedBy = "repartidor")
+    private Set<Pedido> pedido = new HashSet<>();
 
-    @ManyToOne
-    @JoinColumn(name = "pedido_id", referencedColumnName = "id")
-    private Pedido pedido;
 
     public Repartidor() {
     }

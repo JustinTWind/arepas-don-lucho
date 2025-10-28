@@ -18,10 +18,15 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(length = 100, nullable = false)
     private String codigo;
+    @Column(nullable = false)
     private LocalDate fechaCreacion;
+    @Column(nullable = false)
     private Boolean estado;
+    @Column(nullable = false)
     private Integer totalItems;
+    @Column(nullable = false)
     private BigDecimal valorTotal;
     //relacion 1:m
     @OneToMany(mappedBy = "pedido")
